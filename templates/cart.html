@@ -1,0 +1,82 @@
+{% extends "parent.html" %}
+{% block content %}
+
+<div class="container py-5">
+  <h2 class="mb-4 text-center">🛒 Your Cart</h2>
+
+  {% if cart %}
+  <table class="table table-bordered text-center align-middle">
+    <thead class="table-dark">
+      <tr>
+        <th>Image</th>
+        <th>Item</th>
+        <th>Details</th>
+        <th>Quantity</th>
+        <th>Price</th>
+        <th>Total</th>
+        <th>Remove</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      {% for key, item in cart.items %}
+      <tr>
+
+        <!-- IMAGE -->
+        <td>
+          <img src="{{ item.image }}" width="60">
+        </td>
+
+        <!-- NAME -->
+        <td>{{ item.name }}</td>
+
+        <!-- DETAILS -->
+        <td>
+          Size: {{ item.size }} <br>
+          Order: {{ item.order_type }} <br>
+          Flavour: {{ item.flavour }}
+        </td>
+
+        <!-- QUANTITY -->
+        <td>
+          <a href="{% url 'update_cart' key 'minus' %}" class="btn btn-sm btn-dark">-</a>
+          {{ item.quantity }}
+          <a href="{% url 'update_cart' key 'add' %}" class="btn btn-sm btn-dark">+</a>
+        </td>
+
+        <!-- PRICE -->
+        <td>Rs. {{ item.price }}</td>
+
+        <!-- TOTAL -->
+        <td>Rs. {{ item.total_price }}</td>
+
+        <!-- REMOVE -->
+        <td>
+          <a href="{% url 'remove_from_cart' key %}" class="btn btn-danger btn-sm">
+            ❌
+          </a>
+        </td>
+
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+  <!-- TOTAL -->
+  <div class="text-end">
+    <h4>Total: Rs. {{ total }}</h4>
+      <a href="https://wa.me/923001234567?text={{ whatsapp_message }}"
+        target="_blank"
+        class="btn btn-success mt-2">
+
+        <i class="fa-brands fa-whatsapp"></i>
+        Send Order on WhatsApp
+      </a>
+  </div>
+
+  {% else %}
+    <p class="text-center">Cart is empty 😢</p>
+  {% endif %}
+</div>
+
+{% endblock %}

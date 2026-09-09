@@ -1,0 +1,29 @@
+{% extends "parent.html" %}
+{% load static %}
+
+{% block content %}
+
+<!-- HERO -->
+<section class="offers-hero text-center text-white">
+  <div class="container">
+    <h1>🔥 Special Offer</h1>
+    <p>Limited Time Deal</p>
+  </div>
+</section>
+
+<!-- OFFER SECTION -->
+<section class="offer-section py-5">
+  <div class="container text-center">
+
+    <div class="offer-scroll-box">
+      <img src="{% static 'images/deal.jfif' %}" class="offer-poster" width="600" height="800">
+    </div>
+
+    <a href="{% url 'menu_pg' %}" class="order-btn mt-3">
+      Order Now
+    </a>
+
+  </div>
+</section>
+
+{% endblock %}

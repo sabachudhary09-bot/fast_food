@@ -1,0 +1,61 @@
+{% load static %}
+<!-- footer.html -->
+<footer class="bg-dark text-white pt-5 pb-3 mt-5">
+  <div class="container">
+    <div class="row">
+
+      <!-- ABOUT -->
+      <div class="col-md-4">
+        <h5>FastFood</h5>
+        <p>Delicious fast food delivered to your doorstep. Fresh, hot & tasty meals anytime.</p>
+      </div>
+
+      <!-- QUICK LINKS -->
+      <div class="col-md-4">
+        <h5>Quick Links</h5>
+        <ul class="list-unstyled">
+          <li><a href="{% url 'index_pg' %}" class="text-white text-decoration-none">Home</a></li>
+          <li><a href="{% url 'menu_pg' %}" class="text-white text-decoration-none">Menu</a></li>
+          <li><a href="{% url 'offers_pg' %}" class="text-white text-decoration-none">Offers</a></li>
+          <li><a href="{% url 'location_pg' %}" class="text-white text-decoration-none">Location</a></li>
+          <li class="nav-item">
+         <a class="nav-link" href="{% static 'pdf/menu.pdf' %}" download>
+           <i class="fa fa-download"></i> Download Menu
+         </a>
+       </li>
+        </ul>
+      </div>
+
+      <!-- CONTACT -->
+      <div class="col-md-4">
+        <h5>Contact Us</h5>
+        <p><i class="fa fa-phone"></i> +92 300 0000000</p>
+        <p><i class="fa fa-envelope"></i> info@fastfood.com</p>
+        <p><i class="fa fa-map-marker-alt"></i> Your City, Pakistan</p>
+
+        <!-- SOCIAL -->
+        <div>
+          <a href="https://www.facebook.com" class="text-white me-3"><i class="fab fa-facebook"></i></a>
+          <a href="https://www.instagram.com" class="text-white me-3"><i class="fab fa-instagram"></i></a>
+          <a href="https://www.youtube.com" class="text-white me-3"><i class="fab fa-youtube"></i></a>
+        </div>
+
+        <!-- WHATSAPP ORDER -->
+        <div class="mt-2">
+          <a href="https://wa.me/923000000000" class="btn btn-success btn-sm">
+            <i class="fab fa-whatsapp"></i> Order on WhatsApp
+          </a>
+        </div>
+      </div>
+
+    </div>
+
+    <hr class="bg-light">
+
+    <div class="text-center">
+      <p class="mb-0">© 2026 FastFood | All Rights Reserved</p>
+    </div>
+  </div>
+</footer>
+
+

@@ -1,0 +1,134 @@
+{% extends "parent.html" %}
+{% load static %}
+
+{% block content %}
+
+<!-- HERO -->
+<section class="menu-hero text-center text-white">
+  <div class="container">
+    <h1>🍔 Our Menu</h1>
+    <p>Fresh, Hot & Delicious</p>
+  </div>
+</section>
+
+<!-- MENU ITEMS -->
+<section class="py-5 bg-light">
+  <div class="container">
+    <div class="row">
+      <!-- CATEGORY FILTER BUTTONS -->
+<div class="container text-center mb-4">
+
+  <a href="?category=all" class="btn btn-dark btn-sm m-1">All</a>
+  <a href="?category=burger" class="btn btn-outline-dark btn-sm m-1">Burger</a>
+  <a href="?category=pizza" class="btn btn-outline-dark btn-sm m-1">Pizza</a>
+  <a href="?category=fries" class="btn btn-outline-dark btn-sm m-1">Fries</a>
+  <a href="?category=shawarma" class="btn btn-outline-dark btn-sm m-1">Shawarma</a>
+
+</div>
+
+      {% for product in products %}
+      <div class="col-md-4 mb-4">
+        <div class="menu-card position-relative">
+
+          <!-- 🔥 POPULAR BADGE TOP LEFT -->
+          {% if product.is_popular %}
+          <span class="badge bg-danger position-absolute top-0 start-0 m-2">
+            🔥 Popular
+          </span>
+          {% endif %}
+
+          <!-- IMAGE -->
+          {% if product.image %}
+            <img src="{{ product.image.url }}" class="img-fluid">
+          {% else %}
+            <img src="{% static 'images/default.jpg' %}" class="img-fluid">
+          {% endif %}
+
+          <div class="menu-content p-3">
+
+            <!-- NAME -->
+            <h5>{{ product.name }}</h5>
+
+            <!-- CATEGORY -->
+            <p class="text-muted mb-1">
+              {{ product.get_category_display }}
+            </p>
+
+            <div class="d-flex align-items-center justify-content-between mb-2" style="gap:20px;">
+
+              <!-- SIZE -->
+              <div style="width: 35%;">
+                <label><strong>Size:</strong></label>
+                <select class="form-select form-select-sm">
+                  <option value="small">Regular</option>
+                  <option value="small">Small</option>
+                  <option value="medium">Medium</option>
+                  <option value="large">Large</option>
+                </select>
+              </div>
+
+              <!-- ORDER TYPE -->
+              <div style="width: 35%;">
+                <label><strong>Order:</strong></label>
+                <select class="form-select form-select-sm order-type">
+                  <option value="takeaway">Take Away</option>
+                  <option value="delivery">Delivery</option>
+                  <option value="dining">Dining</option>
+                </select>
+              </div>
+
+            </div>
+
+            <!-- FLAVOUR -->
+            <div class="mb-2">
+              <label><strong>Flavour:</strong></label>
+              <select class="form-select form-select-sm custom-select">
+                <option>Cheese</option>
+                <option>BBQ</option>
+                <option>Spicy</option>
+              </select>
+            </div>            
+            <!-- PRICE -->
+            <div class="d-flex justify-content-between align-items-center">
+
+              <span class="price fw-bold">
+                Rs. {{ product.price }}
+              </span>
+
+              <!-- ⭐ QUANTITY BUTTON -->
+              <div class="d-flex align-items-center">
+                <button class="btn btn-outline-dark btn-sm minus">-</button>
+                <input type="text" value="1" class="form-control text-center mx-1 qty" style="width:40px;">
+                <button class="btn btn-outline-dark btn-sm plus">+</button>
+              </div>
+
+            </div>
+            
+
+           <form action="{% url 'add_to_cart' product.id %}" method="POST">
+  {% csrf_token %}
+
+  <!-- hidden inputs (important) -->
+  <input type="hidden" name="quantity" value="1" class="qty-input">
+  <input type="hidden" name="size" class="size-input">
+  <input type="hidden" name="order_type" class="order-input">
+  <input type="hidden" name="flavour" class="flavour-input">
+
+  <button type="submit" class="btn btn-primary w-100 mt-2">
+    Add to Cart
+  </button>
+</form>
+          </div>
+        </div>
+      </div>
+      {% empty %}
+        <p class="text-center">No products available</p>
+      {% endfor %}
+
+    </div>
+  </div>
+</section>
+
+
+
+{% endblock content %}
