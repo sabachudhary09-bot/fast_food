@@ -85,5 +85,55 @@ FastFood/
 │
 ├── manage.py
 ├── requirements.txt
+
+## 🗄️ Database
+
+The project uses **PostgreSQL** for database management.
+
+Database credentials are managed using environment variables to keep sensitive information secure.
+
+---
+
+## 🚀 Live Demo
+
+The project is currently being prepared for deployment.
+
+A live demo link will be added here after deployment.
+
+**Live Website:** Coming Soon
+
+---
+
+## 📸 Screenshots
+
+Screenshots of the FastFood application are added here after deployment.
+
+---
+
+## 👩‍💻 Developer
+
+### Saba Chaudhary
+
+**Aspiring Full Stack Developer|
+Interested in Python, Django and modern web development.**
+
+This project demonstrates practical experience with Django, Python, PostgreSQL, frontend development, Git, and GitHub.
+
+---
+
+
+## 📄 License
+
+This project is created for **educational and portfolio purposes**.
+
+---
+
+## ⭐ Acknowledgement
+
+Built with ❤️ using **Python, Django, PostgreSQL, HTML, CSS, JavaScript, Bootstrap, and Font Awesome**.
+
+If you find this project useful, consider giving the repository a ⭐ on GitHub.
+
+
 ├── .gitignore
 └── README.md
