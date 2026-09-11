@@ -86,6 +86,8 @@ FastFood/
 ├── manage.py
 ├── requirements.txt
 
+---
+
 ## 🗄️ Database
 
 The project uses **PostgreSQL** for database management.
