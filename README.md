@@ -47,7 +47,6 @@ The project is designed with a simple, attractive, and user-friendly interface f
 
 ### Database
 - SQLite (Development)
-- PostgreSQL-ready configuration
 
 ### Tools
 - Git
